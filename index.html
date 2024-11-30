@@ -1,77 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siaton, Charles Andre</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #141414;
-            /* background-image: url("img/background1.jpg"); */
-        }
-        img {
-            top: 25%;
-            /* border-radius: 100%; */
-            width: 200px;
-            height: 200px;
-        }
-        div {
-            margin-left: 35%;
-            margin-top: 6%;
-            background-color: rgba(31, 31, 31, 0.6);
-            /* border-radius: 10%; */
-            width: 550px;
-            height: 700px;
-        }
-        .in {
-            text-align: center;
-        }
-        button {
-            font-family: "Minecraftia", sans-serif;
-            display: block;
-            color: white;
-            background-color: #333333;
-            width: 400px;
-            height: 50px;
-            border-radius: 0px;
-            margin-left: 75px;
-            
-        }
-        h1 {
-            font-family: "Minecraftia", sans-serif;
-            color: white;
-        }
-        .col {
-            font-family: "Minecraftia", sans-serif;
-            color: #C05920;
-        }
-        p {
-            font-family: "Minecraftia", sans-serif;
-            color: white;
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Site</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <div class="in">
-        <br>
-        <img src="img/pfp.png" alt="1">
-        <br>
-        <h1>Kiro1Z</h1>
-        <p class="col"> </p>
-        <p>Social Links</p>
-        <br>
-        <button onclick="document.location='https://www.tiktok.com/@kiro1z'">TikTok</button> 
-        <br>
-        <button onclick="document.location='https://www.youtube.com/@Kiro1Z'">YouTube</button>
-        <br>
-        <button onclick="document.location='https://x.com/Kiro1Z'">X</button>
-        <!-- <br> -->
-        <!-- <button onclick="document.location='https://www.youtube.com/watch?v=SbYXkOAoZpI'">Video</button> -->
-        <br>
-        <button onclick="document.location='https://www.instagram.com/kiro1z/'">Instagram</button>    
+<body class="bg-black text-white">
+  <div class="flex flex-col items-center justify-center min-h-screen">
+    <div class="text-2xl mb-6">
+      <i class="fas fa-asterisk text-gray-500 mr-1"></i>SIATON, CHARLES ANDRE
+    </div>
+    <div class="text-5xl font-bold mb-6">
+      CIS 1102 PORTFOLIO SITE
+    </div>
+    <div class="flex space-x-4">
+      <button class="border border-white rounded-full px-6 py-2 hover:bg-white hover:text-black transition">
+        PROFILE
+      </button>
+      <button class="border border-white rounded-full px-6 py-2 hover:bg-white hover:text-black transition">
+        PORTFOLIO
+      </button>
+    </div>
+  </div>
 </body>
 </html>
