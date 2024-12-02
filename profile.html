@@ -1,56 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   1Z Entertainment
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
- </head>
- <body class="bg-black text-white font-sans">
-  <div class="flex h-screen">
-   <!-- Left Section -->
-   <div class="w-1/3 flex flex-col items-center justify-center space-y-8">
-    <div class="text-center">
-     <div class="text-6xl font-bold">
-      
-     </div>
-     <h1 class="text-2xl font-semibold mt-4">
-      WELCOME TO
-     </h1>
-     <h2 class="text-4xl font-bold mt-2">
-      1Z ENTERTAINMENT
-     </h2>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1Z Entertainment</title>
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Left Section */
+    .left-section {
+      width: 33.33%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .title h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .title h2 {
+      font-size: 30px;
+      margin: 5px 0 0;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Right Section */
+    .right-section {
+      width: 66.66%;
+      position: relative;
+    }
+
+    .right-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .overlay .logo {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-section">
+    <div class="title">
+      <h1>WELCOME TO</h1>
+      <h2>1Z ENTERTAINMENT</h2>
     </div>
-    <div class="space-y-4">
-     <button class="w-48 py-2 border border-white text-lg font-medium hover:bg-white hover:text-black transition">
-      PROFILE
-     </button>
-     <button class="w-48 py-2 border border-white text-lg font-medium hover:bg-white hover:text-black transition">
-      OUR ARTISTS
-     </button>
-     <button class="w-48 py-2 border border-white text-lg font-medium hover:bg-white hover:text-black transition">
-      CONTACT US
-     </button>
-     <button class="w-48 py-2 border border-white text-lg font-medium hover:bg-white hover:text-black transition">
-      EMPLOYEE'S ZONE
-     </button>
+    <div class="buttons">
+      <div class="button">PROFILE</div>
+      <div class="button">OUR ARTISTS</div>
+      <div class="button">CONTACT US</div>
+      <div class="button">EMPLOYEE'S ZONE</div>
     </div>
-   </div>
-   <!-- Right Section -->
-   <div class="w-2/3 relative">
-    <img src="img/1ZHome.jpg" alt="Description of the image">
-    <div class="absolute bottom-4 right-4 text-white text-sm font-semibold flex items-center space-x-2">
-     <div class="text-4xl font-bold">
-      Z
-     </div>
-     <span>
-      1Z ENTERTAINMENT
-     </span>
-    </div>
-   </div>
   </div>
- </body>
+  <div class="right-section">
+    <img src="/img/1ZHome.jpg" alt="Description of the image">
+    <div class="overlay">
+    </div>
+  </div>
+</body>
 </html>
