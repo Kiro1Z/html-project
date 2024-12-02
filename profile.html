@@ -15,6 +15,16 @@
       height: 100vh;
     }
 
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     /* Left Section */
     .left-section {
       width: 33.33%;
@@ -22,6 +32,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .left-section img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
     }
 
     .title {
@@ -56,6 +73,7 @@
       text-align: center;
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
+      animation: fadeIn 2s ease-in-out;
     }
 
     .button:hover {
@@ -67,6 +85,7 @@
     .right-section {
       width: 66.66%;
       position: relative;
+      animation: fadeIn 2s ease-in-out;
     }
 
     .right-section img {
@@ -83,23 +102,13 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      animation: fadeIn 2s ease-in-out;
     }
-  
-    @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
   </style>
 </head>
 <body>
   <div class="left-section">
-    <!-- Image above the text -->
-    <img src="img/1ZLogo.png" alt="1Z Logo" style="width: 200px; height: auto; margin-bottom: 20px;">
+    <img src="img/1ZLogo.png" alt="1Z Logo">
     <div class="title">
       <h1>WELCOME TO</h1>
       <h2>1Z ENTERTAINMENT</h2>
@@ -113,10 +122,7 @@
   </div>
   <div class="right-section">
     <img src="img/1ZHome.jpg" alt="1Z Studio">
-    <div class="overlay">
-      <!--<div class="logo">Z</div>
-      <span>1Z ENTERTAINMENT</span>-->
-    </div>
+    <div class="overlay"></div>
   </div>
 </body>
 </html>
