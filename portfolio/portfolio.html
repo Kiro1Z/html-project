@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Page</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    header img {
+      height: 32px;
+      width: 32px;
+    }
+
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    header button {
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    header button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Main Content */
+    main {
+      padding: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .portfolio-item {
+      text-align: left;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 12rem;
+      object-fit: cover;
+    }
+
+    .portfolio-item h2 {
+      font-size: 1.125rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .portfolio-item a {
+      color: blue;
+      text-decoration: underline;
+      font-size: 0.875rem;
+    }
+
+    .portfolio-item p {
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="img/1ZLogo.png" alt="Logo">
+      <h1>PORTFOLIO PAGE</h1>
+    </div>
+    <button>LOGOUT</button>
+  </header>
+  <main>
+    <div class="grid">
+      <div class="portfolio-item">
+        <img src="img/port1.png" alt="Portfolio 1">
+        <h2>PORTFOLIO #1</h2>
+        <a href="#">Download here</a>
+        <p>Topic: Computer Science as Discipline, Computing Disciplines and Majors</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/port2.png" alt="Portfolio 2">
+        <h2>PORTFOLIO #2</h2>
+        <a href="#">Download here</a>
+        <p>Topic: Data, Information, and Information Systems</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/port3.png" alt="Portfolio 3">
+        <h2>PORTFOLIO #3</h2>
+        <a href="#">Download here</a>
+        <p>Topic: Number Systems</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/port4.png" alt="Portfolio 4">
+        <h2>PORTFOLIO #4</h2>
+        <a href="#">Download here</a>
+        <p>Topic: Computer Hardware and Software: Their Implementation in the different institutions in the community</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/port5.png" alt="Portfolio 5">
+        <h2>PORTFOLIO #5</h2>
+        <a href="#">Download here</a>
+        <p>Topic: Comparative Study On Different Types Of Motherboards</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/port6.png" alt="Portfolio 6">
+        <h2>PORTFOLIO #6</h2>
+        <a href="#">Download here</a>
+        <p>Topic: Comparative Study on Different Types of Computers</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
