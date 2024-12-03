@@ -4,26 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee Login</title>
-  <link rel="stylesheet" href="aboutusstyle.css">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Header styles */
+    .header {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .header img {
+      height: 50px;
+      width: 50px;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* Home Button */
+    .home-button {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      padding: 10px 20px;
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .home-button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Login form styles */
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .form-container label {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .form-container input {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px;
+      border: 1px solid white;
+      background-color: white;
+      color: black;
+      font-size: 1rem;
+      outline: none;
+      text-align: center;
+    }
+
+    /* Login Button */
+    .login-button {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .login-button:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
 </head>
 <body>
-  <div class="login-container">
-    <div class="header">
-      <img src="img/1ZLogo.png" alt="1Z Logo" class="logo">
-      <h1>EMPLOYEE LOGIN</h1>
-    </div>
-    <div class="login-form">
-      <label for="username">USERNAME</label>
-      <input type="text" id="username" name="username" required>
-      
-      <label for="password">PASSWORD</label>
-      <input type="password" id="password" name="password" required>
-      
-      <button type="submit">LOGIN</button>
-    </div>
-    <div class="footer">
-      <button onclick="location.href='/'">HOME</button>
-    </div>
+  <!-- Header -->
+  <div class="header">
+    <img src="img/1ZLogo.png" alt="Logo">
+    <h1>EMPLOYEE LOGIN</h1>
   </div>
+  
+  <!-- Home Button -->
+  <button class="home-button" onclick="location.href='/'">HOME</button>
+  
+  <!-- Login Form -->
+  <div class="form-container">
+    <div class="form-group">
+      <label for="username">USERNAME</label>
+      <input type="text" id="username" placeholder="Enter your username">
+    </div>
+    <div class="form-group">
+      <label for="password">PASSWORD</label>
+      <input type="password" id="password" placeholder="Enter your password">
+    </div>
+    <button class="login-button" onclick="validateLogin()">LOGIN</button>
+  </div>
+
+  <script>
+    // Default credentials
+    const defaultUsername = "1ZADMIN";
+    const defaultPassword = "1ZADMINPASSWORD";
+
+    function validateLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === defaultUsername && password === defaultPassword) {
+        alert("Login successful!");
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+  </script>
 </body>
 </html>
