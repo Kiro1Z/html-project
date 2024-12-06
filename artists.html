@@ -23,9 +23,22 @@
       padding: 1rem 2rem;
     }
 
+    .logo-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-box img {
+      width: 50px; /* Adjust size of the logo */
+      height: 50px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+
     header h1 {
       font-size: 1.5rem;
       font-weight: bold;
+      margin: 0;
     }
 
     header nav {
@@ -105,7 +118,10 @@
 </head>
 <body>
   <header>
-    <h1>OUR ARTISTS</h1>
+    <div class="logo-box">
+      <img src="./img/1ZLogo_with_bg.png" alt="Logo">
+      <h1>OUR ARTISTS</h1>
+    </div>
     <nav>
       <a href="#">HOME</a>
       <a href="#">PROFILE</a>
