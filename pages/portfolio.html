@@ -11,6 +11,8 @@
       font-family: Arial, sans-serif;
       background-color: white;
       color: black;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
 
     /* Header Styles */
@@ -56,6 +58,9 @@
     /* Main Content */
     main {
       padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.3s;
     }
 
     .grid {
@@ -72,6 +77,9 @@
 
     .portfolio-item {
       text-align: left;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.5s;
     }
 
     .portfolio-item img {
@@ -95,6 +103,16 @@
     .portfolio-item p {
       font-size: 0.875rem;
       margin-top: 0.5rem;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
