@@ -38,15 +38,17 @@
       gap: 1rem;
     }
 
-    header button {
+    header .button {
       border: 1px solid white;
       background-color: transparent;
       color: white;
       padding: 0.5rem 1rem;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    header button:hover {
+    header .button:hover {
       background-color: white;
       color: black;
     }
@@ -103,8 +105,8 @@
       <h1>PORTFOLIO PAGE</h1>
     </div>
     <div class="buttons">
-      <button onclick="history.back()">LOGOUT</button>
-      <button onclick="document.location='developer.html'">DEVELOPER PROFILE</button>
+      <a href="./profile.html" class="button">LOGOUT</a>
+      <a href="./developer.html" class="button">DEVELOPER PROFILE</a>
     </div>
   </header>
   <main>
