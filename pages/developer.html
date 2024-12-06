@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       background-color: white;
       color: black;
+      text-align: center;
     }
 
     /* Header Styles */
@@ -33,15 +34,22 @@
       font-weight: 600;
     }
 
-    header button {
+    header .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    header .button {
       border: 1px solid white;
       background-color: transparent;
       color: white;
       padding: 0.5rem 1rem;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    header button:hover {
+    header .button:hover {
       background-color: white;
       color: black;
     }
@@ -54,7 +62,7 @@
     .profile {
       max-width: 800px;
       margin: 0 auto;
-      text-align: left;
+      text-align: center;
     }
 
     .profile h2 {
@@ -67,6 +75,31 @@
       line-height: 1.5;
       margin-top: 1rem;
     }
+
+    /* Image Boxes */
+    .image-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .image-box {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -75,13 +108,28 @@
       <img src="../img/1ZLogo_with_bg.png" alt="Logo">
       <h1>DEVELOPER PROFILE</h1>
     </div>
-    <button onclick="history.back()">BACK TO PORTFOLIO</button>
+    <div class="buttons">
+      <a href="./portfolio.html" class="button">BACK TO PORTFOLIO</a>
+    </div>
   </header>
   <main>
     <div class="profile">
       <h2>About the Developer</h2>
       <p>Hello! I am a passionate web developer dedicated to creating dynamic and user-friendly web applications. My experience spans multiple projects in front-end and back-end development, focusing on clean design and seamless functionality.</p>
       <p><strong>Hobbies:</strong> Coding, gaming, exploring new tech trends, and contributing to open-source projects.</p>
+    </div>
+
+    <!-- Image Boxes Section -->
+    <div class="image-boxes">
+      <div class="image-box">
+        <img src="../img/developer1.jpg" alt="1">
+      </div>
+      <div class="image-box">
+        <img src="../img/developer2.jpg" alt="2">
+      </div>
+      <div class="image-box">
+        <img src="../img/developer3.jpg" alt="3">
+      </div>
     </div>
   </main>
 </body>
