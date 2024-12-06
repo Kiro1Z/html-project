@@ -29,28 +29,29 @@
     }
 
     .logo-box img {
-      width: 50px; /* Adjust size of the logo */
-      height: 50px;
+      width: 60px;
+      height: 60px;
       object-fit: contain;
       margin-right: 1rem;
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: bold;
       margin: 0;
     }
 
     header nav {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     header nav a {
       color: white;
       text-decoration: none;
       border: 1px solid white;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
     }
 
     header nav a:hover {
@@ -60,26 +61,30 @@
 
     /* Main Content */
     main {
-      padding: 2rem;
+      padding: 3rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 3rem;
     }
 
     .artist-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 2rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
 
     .artist-item img.artist-image {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       object-fit: cover;
       background-color: #0000ff; /* Placeholder for images */
+      border-radius: 8px;
     }
 
     .artist-details {
@@ -87,39 +92,40 @@
     }
 
     .artist-details h2 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: bold;
       margin: 0;
     }
 
     .artist-details p {
-      font-size: 0.875rem;
-      margin: 0.5rem 0;
+      font-size: 1rem;
+      margin: 1rem 0;
+      line-height: 1.5;
     }
 
     .social-icons {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1rem;
     }
 
     .social-icons a img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       cursor: pointer;
     }
 
     footer {
       text-align: center;
-      margin-top: 2rem;
-      font-size: 1rem;
+      margin-top: 3rem;
+      font-size: 1.25rem;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo-box">
-      <img src="./img/1ZLogo_with_bg.png" alt="Logo">
+      <img src="./img/LOGO.png" alt="Logo"> <!-- Replace "./img/LOGO.png" with your logo's path -->
       <h1>OUR ARTISTS</h1>
     </div>
     <nav>
