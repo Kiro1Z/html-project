@@ -10,6 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      height: 100%; /* Full-page height */
     }
 
     /* Fade-in animation */
@@ -24,18 +25,22 @@
 
     /* Header */
     header {
-      background-color: black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+      z-index: 10;
       animation: fadeIn 1s ease-out forwards;
     }
 
-    header h1 {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0;
+    .logo {
+      width: 60px;
+      height: auto;
     }
 
     nav a {
@@ -57,12 +62,22 @@
       background-image: url("../img/1ZBackdrop.png");
       background-size: cover;
       background-position: center;
-      padding: 3rem 2rem;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       color: white;
-      opacity: 0;
+      flex-direction: column; /* Stack elements vertically */
       animation: fadeIn 2s ease-out forwards;
-      animation-delay: 0.5s; /* Delays the fade-in effect slightly */
+      animation-delay: 0.5s; /* Delay for fade-in effect */
+    }
+
+    /* Above Text Image */
+    .main-section img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 2rem; /* Spacing below the image */
     }
 
     .main-section h2 {
@@ -87,7 +102,7 @@
 </head>
 <body>
   <header>
-    <h1>Company Profile</h1>
+    <img src="../img/ZLogo.png" alt="Logo" class="logo">
     <nav>
       <a href="#home">Home</a>
       <a href="#artists">Artists</a>
@@ -95,6 +110,7 @@
     </nav>
   </header>
   <section class="main-section">
+    <img src="../img/above-text-image.png" alt="Above Text Image">
     <h2>Here at 1Z</h2>
     <p>We hone <strong>breakthrough artists</strong> who express their <strong>limitless creativity</strong> and passion through groundbreaking music, arts, and entertainment in an ecosystem that is <strong>The Zone</strong>.</p>
     <div class="keywords">Creativity - Integrity - Growth - Innovation - Quality</div>
