@@ -33,6 +33,11 @@
       font-weight: 600;
     }
 
+    header .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
     header button {
       border: 1px solid white;
       background-color: transparent;
@@ -97,7 +102,10 @@
       <img src="../img/1ZLogo_with_bg.png" alt="Logo">
       <h1>PORTFOLIO PAGE</h1>
     </div>
-    <button onclick="history.back()">LOGOUT</button>
+    <div class="buttons">
+      <button onclick="history.back()">LOGOUT</button>
+      <button onclick="document.location='developer.html'">DEVELOPER PROFILE</button>
+    </div>
   </header>
   <main>
     <div class="grid">
