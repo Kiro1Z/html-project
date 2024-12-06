@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Profile</title>
+  <style>
+    /* General Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Header */
+    header {
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid white;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Main Section */
+    .main-section {
+      background-image: url("../img/1ZBackdrop.png");
+      background-size: cover;
+      background-position: center;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 0.5s; /* Delays the fade-in effect slightly */
+    }
+
+    .main-section h2 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
+
+    .main-section p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .main-section .keywords {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Company Profile</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#artists">Artists</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+  <section class="main-section">
+    <h2>Here at 1Z</h2>
+    <p>We hone <strong>breakthrough artists</strong> who express their <strong>limitless creativity</strong> and passion through groundbreaking music, arts, and entertainment in an ecosystem that is <strong>The Zone</strong>.</p>
+    <div class="keywords">Creativity - Integrity - Growth - Innovation - Quality</div>
+  </section>
+</body>
+</html>
