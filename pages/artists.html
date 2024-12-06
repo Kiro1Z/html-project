@@ -11,6 +11,8 @@
       font-family: Arial, sans-serif;
       background-color: white;
       color: black;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
 
     /* Header Styles */
@@ -59,6 +61,16 @@
       color: black;
     }
 
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     /* Main Content */
     main {
       padding: 3rem;
@@ -70,6 +82,7 @@
       gap: 3rem;
     }
 
+    /* Artist Item Styles */
     .artist-item {
       display: flex;
       align-items: center;
@@ -77,6 +90,28 @@
       padding: 1rem;
       border: 1px solid #ccc;
       border-radius: 8px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    /* Delay for each artist item */
+    .artist-item:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .artist-item:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .artist-item:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    .artist-item:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+    .artist-item:nth-child(5) {
+      animation-delay: 1s;
+    }
+    .artist-item:nth-child(6) {
+      animation-delay: 1.2s;
     }
 
     .artist-item img.artist-image {
