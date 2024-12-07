@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - 1Z Entertainment</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <style>
     /* General styles */
     body {
@@ -18,6 +19,21 @@
       flex-direction: column;
     }
 
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Apply the fade-in effect */
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+
     /* Header Styles */
     header {
       background-color: black;
@@ -26,6 +42,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      animation: fadeIn 2s ease-in-out; /* Apply animation */
     }
 
     .logo-box {
@@ -82,6 +99,8 @@
       color: white;
       margin: 20px;
       border-radius: 8px;
+      animation: fadeIn 2s ease-in-out 0.5s; /* Delay animation */
+      animation-fill-mode: both;
     }
 
     .left-section h2 {
@@ -111,6 +130,8 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+      animation: fadeIn 2s ease-in-out 1s; /* Delay animation */
+      animation-fill-mode: both;
     }
 
     .form-container {
@@ -170,21 +191,18 @@
   </style>
 </head>
 <body>
-  <header>
+  <header class="fade-in">
     <div class="logo-box">
       <img src="../img/1ZLogo.png" alt="1Z Logo">
       <h1>1Z Entertainment</h1>
     </div>
     <nav>
       <a href="./profile.html">Home</a>
-      <!-- <a href="#about">About Us</a> -->
-      <!-- <a href="#artists">Our Artists</a> -->
-      <!-- <a href="#contact">Contact Us</a> -->
     </nav>
   </header>
   <div class="main-container">
     <!-- Left Section -->
-    <div class="left-section">
+    <div class="left-section fade-in">
       <h2>Contact Info</h2>
       <div class="contact-info">
         <p>
@@ -203,7 +221,7 @@
     </div>
 
     <!-- Right Section -->
-    <div class="right-section">
+    <div class="right-section fade-in">
       <div class="form-container">
         <h2>Get in Touch</h2>
         <form>
