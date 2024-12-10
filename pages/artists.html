@@ -7,13 +7,44 @@
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <style>
     /* General Styles */
-    body {
+    body, html {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: white;
-      color: black;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    /* Fade-in and Fade-out animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    /* Page container */
+    .page-container {
+      animation: fadeIn 1.5s ease-in forwards;
       opacity: 0;
-      animation: fadeIn 1s forwards;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease-out forwards;
     }
 
     /* Header Styles */
@@ -62,19 +93,12 @@
       color: black;
     }
 
-    /* Fade-in animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
     /* Main Content */
     main {
       padding: 3rem;
+      flex-grow: 1;
+      background-color: black;
+      color: white;
     }
 
     .grid {
@@ -91,35 +115,13 @@
       padding: 1rem;
       border: 1px solid #ccc;
       border-radius: 8px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    /* Delay for each artist item */
-    .artist-item:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-    .artist-item:nth-child(2) {
-      animation-delay: 0.4s;
-    }
-    .artist-item:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-    .artist-item:nth-child(4) {
-      animation-delay: 0.8s;
-    }
-    .artist-item:nth-child(5) {
-      animation-delay: 1s;
-    }
-    .artist-item:nth-child(6) {
-      animation-delay: 1.2s;
+      background-color: #222;
     }
 
     .artist-item img.artist-image {
       width: 150px;
       height: 150px;
       object-fit: cover;
-      background-color: #ffffff;
       border-radius: 8px;
     }
 
@@ -155,36 +157,38 @@
       text-align: center;
       margin-top: 3rem;
       font-size: 1.25rem;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-box">
-      <img src="../img/1ZLogo_with_bg.png" alt="Logo">
-      <h1>Our Artists</h1>
-    </div>
-    <nav>
-      <a href="./profile.html">Home</a>
-      <a href="./aboutus.html">About Us</a>
-      <a href="./contact.html">Contact us</a>
-    </nav>
-  </header>
-  <main>
-    <div class="grid">
-      <!-- SB19 -->
-      <div class="artist-item">
-        <img class="artist-image" src="../img/SB19.jpg" alt="SB19">
-        <div class="artist-details">
-          <h2>SB19</h2>
-          <p>SB19 is a multi-awarded five-member boy group from the Philippines, recognized as Philippine Youth Ambassadors.</p>
-          <div class="social-icons">
-            <a href="https://open.spotify.com/artist/3g7vYcdDXnqnDKYFwqXBJP" target="_blank"><img src="../img/SPOTIFY.png" alt="Spotify"></a>
-            <a href="https://youtube.com/@officialsb19" target="_blank"><img src="../img/YOUTUBE.jpg" alt="YouTube"></a>
-            <a href="https://x.com/SB19Official" target="_blank"><img src="../img/TWITTER.jpg" alt="Twitter"></a>
+  <div class="page-container">
+    <header>
+      <div class="logo-box">
+        <img src="../img/1ZLogo_with_bg.png" alt="Logo">
+        <h1>Our Artists</h1>
+      </div>
+      <nav>
+        <a href="./profile.html">Home</a>
+        <a href="./aboutus.html">About Us</a>
+        <a href="./contact.html">Contact us</a>
+      </nav>
+    </header>
+    <main>
+      <div class="grid">
+        <!-- SB19 -->
+        <div class="artist-item">
+          <img class="artist-image" src="../img/SB19.jpg" alt="SB19">
+          <div class="artist-details">
+            <h2>SB19</h2>
+            <p>SB19 is a multi-awarded five-member boy group from the Philippines, recognized as Philippine Youth Ambassadors.</p>
+            <div class="social-icons">
+              <a href="https://open.spotify.com/artist/3g7vYcdDXnqnDKYFwqXBJP" target="_blank"><img src="../img/SPOTIFY.png" alt="Spotify"></a>
+              <a href="https://youtube.com/@officialsb19" target="_blank"><img src="../img/YOUTUBE.jpg" alt="YouTube"></a>
+              <a href="https://x.com/SB19Official" target="_blank"><img src="../img/TWITTER.jpg" alt="Twitter"></a>
+            </div>
           </div>
         </div>
-      </div>
       <!-- PABLO -->
       <div class="artist-item">
         <img class="artist-image" src="../img/PABLO.jpg" alt="PABLO">
@@ -250,10 +254,28 @@
           </div>
         </div>
       </div>
-    </div>
-  </main>
-  <footer>
-    MORE SOON...
-  </footer>
+      </div>
+    </main>
+    <footer>
+      MORE SOON...
+    </footer>
+  </div>
+  <script>
+    // Apply fade-out animation on navigation
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault(); // Prevent immediate navigation
+        const targetUrl = event.target.href;
+
+        // Add fade-out class
+        document.querySelector('.page-container').classList.add('fade-out');
+
+        // Delay navigation until fade-out is complete
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 1000); // Match the duration of the fade-out animation
+      });
+    });
+  </script>
 </body>
 </html>
