@@ -7,6 +7,14 @@
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Apply inverted colors to the video */
+    #introVideo {
+      filter: invert(1);
+      width: 100%; /* Ensure it scales properly */
+      height: 100%; /* Ensure it scales properly */
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,20 +25,25 @@
     <a href="#" class="button" id="enterButton">ENTER</a>
   </section>
   <div id="videoContainer" style="display: none;">
-    <video id="introVideo" src="./dl/1ZIntro.mp4" preload="auto" width="640" height="360"></video>
+    <video id="introVideo" src="./dl/1ZIntro.mp4" preload="auto"></video>
   </div>
 
   <script>
     document.getElementById('enterButton').addEventListener('click', function(event) {
       event.preventDefault(); // Prevent default navigation
-      const videoContainer = document.getElementById('videoContainer');
       const video = document.getElementById('introVideo');
+      const videoContainer = document.getElementById('videoContainer');
       
-      videoContainer.style.display = 'block'; // Show video container
+      videoContainer.style.display = 'block'; // Show the video container
+      
+      // Request fullscreen for the video
+      video.requestFullscreen?.() || video.webkitRequestFullscreen?.() || video.mozRequestFullScreen?.() || video.msRequestFullscreen?.();
+
       video.play(); // Play the video
       
       // Wait for 9 seconds, then navigate to the next page
       setTimeout(() => {
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.() || document.mozCancelFullScreen?.() || document.msExitFullscreen?.();
         window.location.href = './pages/profile.html';
       }, 9000);
     });
