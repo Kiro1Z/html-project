@@ -12,35 +12,40 @@
       padding: 0;
       font-family: Arial, sans-serif;
       height: 100%;
-      overflow: hidden; /* Prevent scroll during animation */
+      overflow: hidden;
+      background-color: black;
     }
 
     /* Fade-in and Fade-out animations */
-    @keyframes fadeInFromBlack {
-      0% {
+    @keyframes fadeIn {
+      from {
         opacity: 0;
-        background-color: black;
       }
-      100% {
+      to {
         opacity: 1;
-        background-color: transparent;
       }
     }
 
-    @keyframes fadeOutToBlack {
-      0% {
+    @keyframes fadeOut {
+      from {
         opacity: 1;
-        background-color: transparent;
       }
-      100% {
+      to {
         opacity: 0;
-        background-color: black;
       }
     }
 
-    /* Fade-In Effect */
-    body.fade-in {
-      animation: fadeInFromBlack 0.5s ease-out forwards;
+    /* Page container */
+    .page-container {
+      animation: fadeIn 1.5s ease-in forwards;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease-out forwards;
     }
 
     /* Header */
@@ -50,6 +55,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      position: relative;
     }
 
     .logo-container {
@@ -76,7 +82,6 @@
       padding: 0.5rem 1rem;
       border: 1px solid white;
       font-size: 1rem;
-      cursor: pointer;
     }
 
     nav a:hover {
@@ -89,7 +94,7 @@
       background-image: url("../img/1ZBackdrop.png");
       background-size: cover;
       background-position: center;
-      height: 100%;
+      flex-grow: 1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -98,6 +103,7 @@
       flex-direction: column;
     }
 
+    /* Above Text Image */
     .main-section img {
       width: 150px;
       height: auto;
@@ -122,56 +128,42 @@
       text-transform: uppercase;
       letter-spacing: 0.1rem;
     }
-
-    /* Overlay for fade-out */
-    .fade-out-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      opacity: 0;
-      animation: fadeOutToBlack 0.5s ease-out forwards;
-      pointer-events: none;
-    }
   </style>
 </head>
-<body class="fade-in">
-  <header>
-    <div class="logo-container">
-      <img src="../img/1ZLogo_with_bg.png" alt="Logo">
-      <h1>Company Profile</h1>
-    </div>
-    <nav>
-      <a href="./profile.html" class="nav-link">Home</a>
-      <a href="./artists.html" class="nav-link">Artists</a>
-      <a href="./contact.html" class="nav-link">Contact Us</a>
-    </nav>
-  </header>
-  <section class="main-section">
-    <img src="../img/1ZLogo.png" alt="Above Text Image">
-    <h2>Here at 1Z</h2>
-    <p>We hone <strong>breakthrough artists</strong> who express their <strong>limitless creativity</strong> and passion through groundbreaking music, arts, and entertainment in an ecosystem that is <strong>The Zone</strong>.</p>
-    <div class="keywords">Creativity - Integrity - Growth - Innovation - Quality</div>
-  </section>
-  <div class="fade-out-overlay" id="fade-out-overlay"></div>
-
+<body>
+  <div class="page-container">
+    <header>
+      <div class="logo-container">
+        <img src="../img/1ZLogo_with_bg.png" alt="Logo">
+        <h1>Company Profile</h1>
+      </div>
+      <nav>
+        <a href="./profile.html">Home</a>
+        <a href="./artists.html">Artists</a>
+        <a href="./contact.html">Contact Us</a>
+      </nav>
+    </header>
+    <section class="main-section">
+      <img src="../img/1ZLogo.png" alt="Above Text Image">
+      <h2>Here at 1Z</h2>
+      <p>We hone <strong>breakthrough artists</strong> who express their <strong>limitless creativity</strong> and passion through groundbreaking music, arts, and entertainment in an ecosystem that is <strong>The Zone</strong>.</p>
+      <div class="keywords">Creativity - Integrity - Growth - Innovation - Quality</div>
+    </section>
+  </div>
   <script>
-    // Handle fade-out on navigation
-    const navLinks = document.querySelectorAll('.nav-link');
-    const fadeOutOverlay = document.getElementById('fade-out-overlay');
+    // Apply fade-out animation on navigation
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault(); // Prevent immediate navigation
+        const targetUrl = event.target.href;
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent instant navigation
-        fadeOutOverlay.style.pointerEvents = 'auto'; // Enable pointer events
-        fadeOutOverlay.style.opacity = '1'; // Start fade-out animation
+        // Add fade-out class
+        document.querySelector('.page-container').classList.add('fade-out');
 
-        // Redirect after the fade-out animation
+        // Delay navigation until fade-out is complete
         setTimeout(() => {
-          window.location.href = link.href;
-        }, 500);
+          window.location.href = targetUrl;
+        }, 1000); // Match the duration of the fade-out animation
       });
     });
   </script>
