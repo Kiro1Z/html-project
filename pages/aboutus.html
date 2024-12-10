@@ -54,8 +54,8 @@
       align-items: center;
       padding: 1rem 2rem;
       position: relative;
-      animation: fadeIn 1s ease-out forwards;
       opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
       animation-delay: 1s; /* Delay to ensure fade-in after black screen */
     }
 
@@ -132,24 +132,23 @@
       letter-spacing: 0.1rem;
     }
 
-    /* For fade-out transition */
+    /* Fade-out animation */
     .fade-out {
       animation: fadeOut 1s forwards;
-      animation-delay: 6s; /* Delay fade-out after content is visible for a while */
     }
   </style>
 </head>
 <body>
-  <div class="fade-container"></div> <!-- Black screen overlay -->
+  <div class="fade-container" id="fade-container"></div> <!-- Black screen overlay -->
   <header>
     <div class="logo-container">
       <img src="../img/1ZLogo_with_bg.png" alt="Logo">
       <h1>Company Profile</h1>
     </div>
     <nav>
-      <a href="./profile.html">Home</a>
-      <a href="./artists.html">Artists</a>
-      <a href="./contact.html">Contact Us</a>
+      <a href="./profile.html" class="nav-link">Home</a>
+      <a href="./artists.html" class="nav-link">Artists</a>
+      <a href="./contact.html" class="nav-link">Contact Us</a>
     </nav>
   </header>
   <section class="main-section">
@@ -160,9 +159,26 @@
   </section>
 
   <script>
-    // Optional: You can add JavaScript to fade out the page on exit (for example, on navigating to another page)
-    window.addEventListener('beforeunload', function() {
-      document.body.classList.add('fade-out');
+    // Function to fade out the page before redirecting
+    function fadeOutPage() {
+      document.body.classList.add('fade-out'); // Apply fade-out animation to the body
+      setTimeout(() => {
+        window.location.href = event.target.href; // Redirect after the fade-out
+      }, 1000); // Wait for fade-out animation to complete before redirecting
+    }
+
+    // Add event listeners to navigation links to trigger fade-out before redirecting
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default navigation
+        fadeOutPage(); // Fade out the page
+      });
+    });
+
+    // Automatically start the fade-in effect on page load
+    window.addEventListener('load', () => {
+      document.getElementById('fade-container').style.animation = 'fadeOut 1s forwards';
     });
   </script>
 </body>
