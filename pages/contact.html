@@ -17,9 +17,11 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      animation: fadeIn 0.4s forwards;
     }
 
-    /* Fade-in animation */
+    /* Fade-in and fade-out animations */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -29,9 +31,22 @@
       }
     }
 
-    /* Apply the fade-in effect */
-    .fade-in {
-      animation: fadeIn 2s ease-in-out;
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    /* Transition for navigation links */
+    a {
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    a.fade-out {
+      animation: fadeOut 0.2s forwards;
     }
 
     /* Header Styles */
@@ -42,7 +57,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      animation: fadeIn 2s ease-in-out;
     }
 
     .logo-box {
@@ -99,7 +113,7 @@
       color: white;
       margin: 20px;
       border-radius: 8px;
-      animation: fadeIn 2s ease-in-out 0.5s;
+      animation: fadeIn 0.4s ease-in-out 0.2s;
       animation-fill-mode: both;
     }
 
@@ -130,7 +144,7 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
-      animation: fadeIn 2s ease-in-out 1s;
+      animation: fadeIn 0.4s ease-in-out 0.3s;
       animation-fill-mode: both;
     }
 
@@ -191,18 +205,18 @@
   </style>
 </head>
 <body>
-  <header class="fade-in">
+  <header>
     <div class="logo-box">
       <img src="../img/1ZLogo.png" alt="1Z Logo">
       <h1>1Z Entertainment</h1>
     </div>
     <nav>
-      <a href="./profile.html">Home</a>
+      <a href="./profile.html" class="fade-link">Home</a>
     </nav>
   </header>
   <div class="main-container">
     <!-- Left Section -->
-    <div class="left-section fade-in">
+    <div class="left-section">
       <h2>Contact Info</h2>
       <div class="contact-info">
         <p>
@@ -221,7 +235,7 @@
     </div>
 
     <!-- Right Section -->
-    <div class="right-section fade-in">
+    <div class="right-section">
       <div class="form-container">
         <h2>Get in Touch</h2>
         <form>
@@ -239,5 +253,18 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Add fade-out on navigation links
+    document.querySelectorAll('a.fade-link').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        document.body.style.animation = 'fadeOut 0.2s forwards';
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 200);
+      });
+    });
+  </script>
 </body>
 </html>
