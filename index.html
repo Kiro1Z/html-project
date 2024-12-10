@@ -17,23 +17,18 @@
     <a href="#" class="button" id="enterButton">ENTER</a>
   </section>
   <div id="videoContainer" style="display: none;">
-    <video id="introVideo" src="/dl/1ZIntro.mp4" preload="auto"></video>
+    <video id="introVideo" src="./dl/1ZIntro.mp4" preload="auto" width="640" height="360"></video>
   </div>
 
   <script>
     document.getElementById('enterButton').addEventListener('click', function(event) {
       event.preventDefault(); // Prevent default navigation
-
-      // Hide all elements except the video container
-      document.body.querySelectorAll('*:not(#videoContainer)').forEach(el => el.style.display = 'none');
-
       const videoContainer = document.getElementById('videoContainer');
       const video = document.getElementById('introVideo');
-
-      // Show the video container and play the video
-      videoContainer.style.display = 'flex';
-      video.play();
-
+      
+      videoContainer.style.display = 'block'; // Show video container
+      video.play(); // Play the video
+      
       // Wait for 9 seconds, then navigate to the next page
       setTimeout(() => {
         window.location.href = './pages/profile.html';
