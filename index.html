@@ -42,7 +42,7 @@
     <a href="#" class="button" id="enterButton">ENTER</a>
   </section>
   <div id="videoContainer">
-    <video id="introVideo" src="./img/1ZIntro.mp4" preload="auto"></video>
+    <video id="introVideo" src="#" preload="auto"></video>
   </div>
 
   <script>
@@ -54,23 +54,27 @@
     enterButton.addEventListener('click', (event) => {
       event.preventDefault(); // Prevent default link behavior
 
-      // Fade out the main content
+      // Immediately fade out the main content
       body.style.opacity = 0;
 
+      // After 1 second, fade in the video
       setTimeout(() => {
-        // Show and fade in the video
         videoContainer.style.display = 'flex';
-        videoContainer.style.opacity = 1;
-        video.play();
+        videoContainer.style.opacity = 1; // Fade in the video
 
-        // Wait for 7 seconds before fading out the video and redirecting
+        // Wait for 1 second (fade-in effect), then play the video
         setTimeout(() => {
-          videoContainer.style.opacity = 0; // Fade out the video
+          video.play();
+
+          // Wait for 7 seconds before fading out the video and redirecting
           setTimeout(() => {
-            video.pause();
-            window.location.href = './pages/profile.html'; // Navigate to next page
-          }, 1000); // Wait for fade-out to complete
-        }, 7000);
+            videoContainer.style.opacity = 0; // Fade out the video
+            setTimeout(() => {
+              video.pause();
+              window.location.href = './pages/profile.html'; // Navigate to next page
+            }, 1000); // Wait for fade-out to complete
+          }, 7000);
+        }, 1000); // Wait for 1 second (video fade-in)
       }, 1000); // Wait for the main content to fade out
     });
   </script>

@@ -1,82 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Site</title>
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1Z Entertainment</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <style>
+    /* General styles */
     body {
-      transition: opacity 1s ease-in-out;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      display: flex;
+      height: 100vh;
     }
-    #videoContainer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      display: none;
-      justify-content: center;
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Left Section */
+    .left-section {
+      width: 33.33%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+      justify-content: center;
+      animation: fadeIn 2s ease-in-out;
     }
-    #introVideo {
+
+    .left-section img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .title h1 {
+      font-size: 20px;
+      margin: 10px 0 0;
+    }
+
+    .title h2 {
+      font-size: 30px;
+      margin: 5px 0 0;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Right Section */
+    .right-section {
+      width: 66.66%;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .right-section img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: invert(1); /* Invert colors */
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 2s ease-in-out;
     }
   </style>
 </head>
 <body>
-  <header>
-    SIATON, CHARLES ANDRE
-  </header>
-  <h1>CIS 1102 PORTFOLIO WEBSITE</h1>
-  <section class="buttons">
-    <a href="#" class="button" id="enterButton">ENTER</a>
-  </section>
-  <div id="videoContainer">
-    <video id="introVideo" src="../img/1ZIntro.mp4" preload="auto"></video>
+  <div class="left-section">
+    <img src="../img/1ZLogo.png" alt="1Z Logo">
+    <div class="title">
+      <h1>Welcome to</h1>
+      <h2>1Z ENTERTAINMENT</h2>
+    </div>
+    <div class="buttons">
+      <a href="./aboutus.html" class="button">About Us</a>
+      <a href="./artists.html" class="button">Our Artists</a>
+      <a href="./contact.html" class="button">Contact Us</a>
+      <a href="./employeezone.html" class="button">Employee's Zone</a>
+    </div>
   </div>
-
-  <script>
-    const enterButton = document.getElementById('enterButton');
-    const videoContainer = document.getElementById('videoContainer');
-    const video = document.getElementById('introVideo');
-    const body = document.body;
-
-    enterButton.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default link behavior
-
-      // Fade out the main content
-      body.style.opacity = 0;
-
-      setTimeout(() => {
-        // Show and fade in the video
-        videoContainer.style.display = 'flex';
-        videoContainer.style.opacity = 1;
-
-        // Wait for fade-in to complete, then play the video
-        setTimeout(() => {
-          video.play();
-
-          // Wait for 7 seconds before fading out the video and redirecting
-          setTimeout(() => {
-            videoContainer.style.opacity = 0; // Fade out the video
-            setTimeout(() => {
-              video.pause();
-              window.location.href = './pages/profile.html'; // Navigate to next page
-            }, 1000); // Wait for fade-out to complete
-          }, 7000);
-        }, 1000); // Wait for fade-in to complete
-      }, 1000); // Wait for the main content to fade out
-    });
-  </script>
+  <div class="right-section">
+    <img src="../img/1ZHome.jpg" alt="1Z Studio">
+    <div class="overlay"></div>
+  </div>
 </body>
 </html>
