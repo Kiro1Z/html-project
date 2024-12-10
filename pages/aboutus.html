@@ -12,31 +12,35 @@
       padding: 0;
       font-family: Arial, sans-serif;
       height: 100%;
-      overflow: hidden;
-      position: relative;
+      overflow: hidden; /* Prevent scroll during animation */
     }
 
-    /* Transition overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      z-index: 9999;
-      animation: fadeInOut 0.5s ease forwards;
+    /* Fade-in and Fade-out animations */
+    @keyframes fadeInFromBlack {
+      0% {
+        opacity: 0;
+        background-color: black;
+      }
+      100% {
+        opacity: 1;
+        background-color: transparent;
+      }
     }
 
-    /* Fade-out for links */
-    a {
-      transition: opacity 0.5s ease, transform 0.5s ease;
+    @keyframes fadeOutToBlack {
+      0% {
+        opacity: 1;
+        background-color: transparent;
+      }
+      100% {
+        opacity: 0;
+        background-color: black;
+      }
     }
 
-    a:active {
-      opacity: 0;
-      transform: scale(0.95);
+    /* Fade-In Effect */
+    body.fade-in {
+      animation: fadeInFromBlack 0.5s ease-out forwards;
     }
 
     /* Header */
@@ -46,9 +50,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      position: relative;
-      z-index: 1;
-      animation: fadeIn 0.5s ease-out 0.5s forwards;
     }
 
     .logo-container {
@@ -75,6 +76,7 @@
       padding: 0.5rem 1rem;
       border: 1px solid white;
       font-size: 1rem;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -94,7 +96,6 @@
       text-align: center;
       color: white;
       flex-direction: column;
-      animation: fadeIn 1s ease-out 0.5s forwards;
     }
 
     .main-section img {
@@ -122,36 +123,30 @@
       letter-spacing: 0.1rem;
     }
 
-    /* Keyframes */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInOut {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
+    /* Overlay for fade-out */
+    .fade-out-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      animation: fadeOutToBlack 0.5s ease-out forwards;
+      pointer-events: none;
     }
   </style>
 </head>
-<body>
+<body class="fade-in">
   <header>
     <div class="logo-container">
       <img src="../img/1ZLogo_with_bg.png" alt="Logo">
       <h1>Company Profile</h1>
     </div>
     <nav>
-      <a href="./profile.html">Home</a>
-      <a href="./artists.html">Artists</a>
-      <a href="./contact.html">Contact Us</a>
+      <a href="./profile.html" class="nav-link">Home</a>
+      <a href="./artists.html" class="nav-link">Artists</a>
+      <a href="./contact.html" class="nav-link">Contact Us</a>
     </nav>
   </header>
   <section class="main-section">
@@ -160,20 +155,25 @@
     <p>We hone <strong>breakthrough artists</strong> who express their <strong>limitless creativity</strong> and passion through groundbreaking music, arts, and entertainment in an ecosystem that is <strong>The Zone</strong>.</p>
     <div class="keywords">Creativity - Integrity - Growth - Innovation - Quality</div>
   </section>
+  <div class="fade-out-overlay" id="fade-out-overlay"></div>
+
+  <script>
+    // Handle fade-out on navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    const fadeOutOverlay = document.getElementById('fade-out-overlay');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent instant navigation
+        fadeOutOverlay.style.pointerEvents = 'auto'; // Enable pointer events
+        fadeOutOverlay.style.opacity = '1'; // Start fade-out animation
+
+        // Redirect after the fade-out animation
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 500);
+      });
+    });
+  </script>
 </body>
 </html>
-```
-
-### Key Features:
-1. **Black Screen Transition (`::before`)**:
-   - A pseudo-element (`body::before`) creates the initial black overlay.
-   - It animates from fully visible to invisible over 0.5 seconds using the `fadeInOut` keyframe.
-
-2. **Fade-Out Effect on Link Click**:
-   - `a:active` applies a fade-out and scaling effect to links when clicked.
-
-3. **Animations**:
-   - `fadeInOut`: Handles the transition from black screen to page content.
-   - `fadeIn`: Fades in the page elements after the black screen disappears.
-
-This approach ensures a smooth transition effect for the page load and fade-out on navigation without requiring JavaScript.
