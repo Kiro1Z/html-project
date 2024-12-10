@@ -12,9 +12,10 @@
       padding: 0;
       font-family: Arial, sans-serif;
       height: 100%;
+      overflow: hidden; /* Prevent scrolling during fade-out */
     }
 
-    /* Fade-in animation */
+    /* Fade-in and fade-out animations */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -22,6 +23,27 @@
       to {
         opacity: 1;
       }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    /* Black screen to fade-in and fade-out */
+    .fade-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      animation: fadeIn 1s forwards;
+      z-index: 9999;
     }
 
     /* Header */
@@ -33,6 +55,8 @@
       padding: 1rem 2rem;
       position: relative;
       animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 1s; /* Delay to ensure fade-in after black screen */
     }
 
     .logo-container {
@@ -79,7 +103,7 @@
       color: white;
       flex-direction: column;
       animation: fadeIn 2s ease-out forwards;
-      animation-delay: 0.5s;
+      animation-delay: 2.5s; /* Delay to ensure fade-in after black screen */
     }
 
     /* Above Text Image */
@@ -107,9 +131,16 @@
       text-transform: uppercase;
       letter-spacing: 0.1rem;
     }
+
+    /* For fade-out transition */
+    .fade-out {
+      animation: fadeOut 1s forwards;
+      animation-delay: 6s; /* Delay fade-out after content is visible for a while */
+    }
   </style>
 </head>
 <body>
+  <div class="fade-container"></div> <!-- Black screen overlay -->
   <header>
     <div class="logo-container">
       <img src="../img/1ZLogo_with_bg.png" alt="Logo">
@@ -127,5 +158,12 @@
     <p>We hone <strong>breakthrough artists</strong> who express their <strong>limitless creativity</strong> and passion through groundbreaking music, arts, and entertainment in an ecosystem that is <strong>The Zone</strong>.</p>
     <div class="keywords">Creativity - Integrity - Growth - Innovation - Quality</div>
   </section>
+
+  <script>
+    // Optional: You can add JavaScript to fade out the page on exit (for example, on navigating to another page)
+    window.addEventListener('beforeunload', function() {
+      document.body.classList.add('fade-out');
+    });
+  </script>
 </body>
 </html>
