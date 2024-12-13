@@ -17,26 +17,29 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
+      animation: fadeInFromBlack 2s ease-in-out forwards;
     }
 
     /* Fade-in and fade-out animations */
-    @keyframes fadeIn {
+    @keyframes fadeInFromBlack {
       from {
         opacity: 0;
+        background-color: black;
       }
       to {
         opacity: 1;
+        background-color: transparent;
       }
     }
 
-    @keyframes fadeOut {
+    @keyframes fadeOutToBlack {
       from {
         opacity: 1;
+        background-color: transparent;
       }
       to {
         opacity: 0;
+        background-color: black;
       }
     }
 
@@ -105,7 +108,7 @@
       color: white;
       margin: 20px;
       border-radius: 8px;
-      animation: fadeIn 2s ease-in-out;
+      animation: fadeInFromBlack 2s ease-in-out;
     }
 
     .right-section {
@@ -114,7 +117,7 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
-      animation: fadeIn 2s ease-in-out;
+      animation: fadeInFromBlack 2s ease-in-out;
     }
 
     .form-container {
@@ -196,7 +199,7 @@
     document.querySelectorAll('a.fade-link').forEach(link => {
       link.addEventListener('click', event => {
         event.preventDefault();
-        document.body.style.animation = 'fadeOut 2s ease-in-out forwards';
+        document.body.style.animation = 'fadeOutToBlack 2s ease-in-out forwards';
         setTimeout(() => {
           window.location.href = link.href;
         }, 2000);
