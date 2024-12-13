@@ -17,6 +17,7 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+      opacity: 0; /* Start invisible */
       animation: fadeInFromBlack 2s ease-in-out forwards;
     }
 
@@ -108,7 +109,6 @@
       color: white;
       margin: 20px;
       border-radius: 8px;
-      animation: fadeInFromBlack 2s ease-in-out;
     }
 
     .right-section {
@@ -117,7 +117,6 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
-      animation: fadeInFromBlack 2s ease-in-out;
     }
 
     .form-container {
@@ -196,13 +195,14 @@
   </div>
 
   <script>
+    // Fade-out effect when navigating away
     document.querySelectorAll('a.fade-link').forEach(link => {
       link.addEventListener('click', event => {
         event.preventDefault();
         document.body.style.animation = 'fadeOutToBlack 2s ease-in-out forwards';
         setTimeout(() => {
           window.location.href = link.href;
-        }, 2000);
+        }, 2000); // Wait for the fade-out animation to finish
       });
     });
   </script>
